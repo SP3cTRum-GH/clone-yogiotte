@@ -1,0 +1,32 @@
+.HighlightTrue {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #555;
+  position: relative;
+  color: #007aff;
+  font-weight: bold;
+}
+
+.HighlightTrue::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background-color: #007aff;
+  border-radius: 1px;
+}
+
+.HighlightFalse {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #555;
+  position: relative;
+}
