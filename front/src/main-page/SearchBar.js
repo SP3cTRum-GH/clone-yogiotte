@@ -105,65 +105,170 @@ function SearchBar() {
       {/* 하단 검색창 및 검색 선택 부분  */}
       <div>
         <input type="text" placeholder="여행지나 숙소를 검색해보세요."></input>
-        <button onClick={toggleCalanderControl}>달력버튼</button>
+        <div className={Styles.dropdownWrapper}>
+          <button onClick={toggleCalanderControl}>달력버튼</button>
+          {isCalanderVisible && (
+            <div className={Styles.dropdownContent}>
+              <h1>달력</h1>
+            </div>
+          )}
+        </div>
+
         {activeButton === "국내 숙소" ? (
-          <button onClick={toggleCountControl}>인원 {count}</button>
+          <div className={Styles.dropdownWrapper}>
+            <button onClick={toggleCountControl}>인원 {count}</button>
+            {isCountVisible && (
+              <div className={Styles.dropdownContent}>
+                <div className={Styles.dropdownRow}>
+                  <div className={Styles.textBox}>
+                    <h3>인원</h3>
+                    <h6>유아 및 아동도 인원수에 포함해주세요</h6>
+                  </div>
+                  <div className={Styles.buttonBox}>
+                    <button onClick={countDownClick} disabled={count === 1}>
+                      -
+                    </button>
+                    {count === 10 ? (
+                      <span>{count}+</span>
+                    ) : (
+                      <span>{count}</span>
+                    )}
+                    <button onClick={countUpClick} disabled={count === 10}>
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
-          <button onClick={toggleAboardCountControl}>
-            성인 {adultCount} {childCount > 0 && `아동 ${childCount}`} 객실{" "}
-            {roomCount}
-          </button>
+          <div className={Styles.dropdownWrapper}>
+            <button onClick={toggleAboardCountControl}>
+              성인 {adultCount} {childCount > 0 && `아동 ${childCount}`} 객실{" "}
+              {roomCount}
+            </button>
+            {isAboardCountVisible && (
+              <div className={Styles.dropdownContent}>
+                <div className={Styles.dropdownRow}>
+                  <div className={Styles.textBox}>
+                    <h3>성인</h3>
+                    <h6>총 성인 수</h6>
+                  </div>
+                  <div className={Styles.buttonBox}>
+                    <button
+                      onClick={adultCountDownClick}
+                      disabled={adultCount === 1}
+                    >
+                      -
+                    </button>
+                    <span>{adultCount}</span>
+                    <button
+                      onClick={adultCountUpClick}
+                      disabled={adultCount === 36}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className={Styles.dropdownRow}>
+                  <div className={Styles.textBox}>
+                    <h3>아동</h3>
+                    <h6>총 아동 수(만 0세 ~ 17세)</h6>
+                  </div>
+                  <div className={Styles.buttonBox}>
+                    <button
+                      onClick={childCountDownClick}
+                      disabled={childCount === 0}
+                    >
+                      -
+                    </button>
+                    <span>{childCount}</span>
+                    <button
+                      onClick={childCountUpClick}
+                      disabled={childCount === 9}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className={Styles.dropdownRow}>
+                  <div className={Styles.textBox}>
+                    <h3>객실</h3>
+                    <h6>총 인원이 이용할 객실 수</h6>
+                  </div>
+                  <div className={Styles.buttonBox}>
+                    <button
+                      onClick={roomCountDownClick}
+                      disabled={roomCount === 1}
+                    >
+                      -
+                    </button>
+                    <span>{roomCount}</span>
+                    <button
+                      onClick={roomCountUpClick}
+                      disabled={roomCount === 9}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                {childCount > 0 && (
+                  <div
+                    className={Styles.textBox}
+                    style={{
+                      background: "#e7e8e7",
+                    }}
+                  >
+                    <ul>
+                      <li>
+                        <h6>
+                          숙소별로 아동으로 간주하는 나이가 다르므로 체크인
+                          일자 기준의 정확한 만나이를 입력해주세요. (해외숙소는
+                          일반적으로 만 17세 이하의 개인을 어린이로 간주합니다.)
+                        </h6>
+                      </li>
+                      <li>
+                        <h6>
+                          인원(성인, 아동)을 선택하실 때 객실별로 이용할
+                          인원이 아닌 ‘총 인원 수’를 선택해주세요.
+                        </h6>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+                {Array.from({ length: childCount }).map((_, index) => (
+                  <div className={Styles.dropdownRow} key={index}>
+                    <div className={Styles.textBox}>
+                      <h3>{`아동 ${index + 1}`}</h3>
+                    </div>
+                    <div className={Styles.selectBox}>
+                      <select>
+                        <option value={2}>만 3세 미만</option>
+                        <option value={4}>만 4세</option>
+                        <option value={5}>만 5세</option>
+                        <option value={6}>만 6세</option>
+                        <option value={7}>만 7세</option>
+                        <option value={8}>만 8세</option>
+                        <option value={9}>만 9세</option>
+                        <option value={10}>만 10세</option>
+                        <option value={11}>만 11세</option>
+                        <option value={12} selected>
+                          만 12세
+                        </option>
+                        <option value={13}>만 13세</option>
+                        <option value={14}>만 14세</option>
+                        <option value={15}>만 15세</option>
+                        <option value={16}>만 16세</option>
+                        <option value={17}>만 17세</option>
+                      </select>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         )}
         <button onClick={goToSearch}>검색</button>
-        {/**달력 드롭다운 */}
-        {isCalanderVisible && (
-          <div>
-            <h1>달력</h1>
-          </div>
-        )}
-        {/**국내숙소 인원 드롭다운 */}
-        {isCountVisible && (
-          <div>
-            <div>
-              <h3>인원</h3>
-              <h6>유아 및 아동도 인원수에 포함해주세요</h6>
-            </div>
-            <div>
-              <button onClick={countDownClick} disabled={count === 1}>
-                -
-              </button>
-              <span>{count}</span>
-              <button onClick={countUpClick}>+</button>
-            </div>
-          </div>
-        )}
-        {/**해외숙소 인원 드롭다운 */}
-        {isAboardCountVisible && (
-          <div>
-            <div>
-              <h3>성인</h3>
-              <h3>아동</h3>
-              <h3>객실</h3>
-            </div>
-            <div>
-              <button onClick={adultCountDownClick} disabled={adultCount === 1}>
-                -
-              </button>
-              <span>{adultCount}</span>
-              <button onClick={adultCountUpClick}>+</button>
-              <button onClick={childCountDownClick} disabled={childCount === 0}>
-                -
-              </button>
-              <span>{childCount}</span>
-              <button onClick={childCountUpClick}>+</button>
-              <button onClick={roomCountDownClick} disabled={roomCount === 1}>
-                -
-              </button>
-              <span>{roomCount}</span>
-              <button onClick={roomCountUpClick}>+</button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
