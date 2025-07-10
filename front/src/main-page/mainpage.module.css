@@ -97,3 +97,37 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.searchWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  top: -32px;
+  left: 8px;
+  background-color: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 15px;
+  margin-left: -5px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.react-calendar__tile--now {
+  background: #007bff !important;
+  color: white !important;
+}

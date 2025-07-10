@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
 
 //각페이지 import
 import MainPage from "./pages/MainPage";
@@ -16,7 +15,9 @@ function App() {
   return (
     <div>
       {/*헤더*/}
-      <Header />
+      <header>
+        <Header />
+      </header>
 
       {/*각페이지 라우터*/}
       <Routes>
@@ -28,7 +29,9 @@ function App() {
       </Routes>
 
       {/*푸터*/}
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
