@@ -83,6 +83,8 @@ function SearchBar() {
     return null; // 시작 날짜가 아직 선택되지 않은 경우
   };
 
+  //달력 버튼에 쓸 날짜 형식 변환기
+
   const maxSelectableDate = calculateMaxSelectableDate();
 
   const formatDate = (date) => {
@@ -132,10 +134,11 @@ function SearchBar() {
     };
   }, [calanderRef, countRef, aboardCountRef]);
 
-  // 달력이 닫힐 때 dateRange 처리
+  // 달력이 닫힐 때 첫번째날만 선택된 경우 두번째날 자동선택기
   useEffect(() => {
     if (!isCalanderVisible) {
       const [start, end] = dateRange;
+
       // 시작 날짜와 종료 날짜가 같으면 (하루만 선택된 경우)
       if (start && end && start.getTime() === end.getTime()) {
         const newEndDate = new Date(start);
@@ -156,12 +159,35 @@ function SearchBar() {
       setShowTooltip(true);
       setTimeout(() => {
         setShowTooltip(false);
-      }, 5000); // 5초 후 사라짐
+      }, 5000);
       return;
     }
 
-    navigate("./search");
+    if (activeButton === "국내 숙소") {
+      //국내숙소 일경우 urlQuery
+      const query = new URLSearchParams({
+        keyword : searchKeyword,
+        checkin: dateRange[0].toISOString().split("T")[0],
+        checkout: dateRange[1].toISOString().split("T")[0],
+        member : count
+      })
+      navigate(`/search?${query.toString()}`);
+    } else {
+      //해외숙소 일경우 urlQuery
+      const query = new URLSearchParams({
+        keyword : searchKeyword,
+        checkin: dateRange[0].toISOString().split("T")[0],
+        checkout: dateRange[1].toISOString().split("T")[0],
+        adult : adultCount,
+        child : childCount,
+        room : roomCount,
+      })
+      navigate(`/search?${query.toString()}`);
+    }
+
   };
+
+  //지도 검색 기능
 
   const handleSearchChange = async (e) => {
     const keyword = e.target.value;
@@ -179,7 +205,7 @@ function SearchBar() {
         )}`,
         {
           headers: {
-            Authorization: "KakaoAK (restAPI키 입력)",
+            Authorization: "KakaoAK (카카오API키)",
           },
         }
       );
@@ -190,6 +216,8 @@ function SearchBar() {
       console.error("검색 오류:", error);
     }
   };
+
+  //그외 버튼 핸들러들
 
   const handleButtonClick = (buttonText) => {
     setActiveButton(buttonText);
@@ -316,7 +344,7 @@ function SearchBar() {
             ))}
           </ul>
         )}
-        {activeButton === "국내숙소" ? (<div className={Styles.dropdownWrapper} ref={calanderRef}>
+        {activeButton === "국내 숙소" ? (<div className={Styles.dropdownWrapper} ref={calanderRef}>
           <button onClick={toggleCalanderControl}>
             {formatDate(dateRange)}
           </button>
