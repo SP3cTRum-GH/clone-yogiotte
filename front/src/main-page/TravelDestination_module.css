@@ -1,0 +1,46 @@
+.travel-wrap {
+  position: relative;
+  width: calc((156px * 6) + (20px * 5));
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.travel-wrap > ul {
+  margin: 0;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.travel-wrap > ul::-webkit-scrollbar {
+  display: none;
+}
+
+.travel-container {
+  width: 156px;
+  height: 205px;
+  font-size: 14px;
+  text-align: start;
+  cursor: pointer;
+  list-style: none;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.travel-container > img {
+  width: 156px;
+  height: 156px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.travel-container > p {
+  padding-left: 5px;
+}
