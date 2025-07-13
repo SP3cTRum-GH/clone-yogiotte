@@ -205,7 +205,7 @@ function SearchBar() {
         )}`,
         {
           headers: {
-            Authorization: "KakaoAK (카카오API키)",
+            Authorization: "KakaoAK (api코드)",
           },
         }
       );
@@ -288,7 +288,8 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <div className={Styles.textAndSearchContainer}>
+    <div className={Styles.searchBox}>
       {/*상단 버튼 부분*/}
       <div>
         <button
@@ -313,7 +314,7 @@ function SearchBar() {
         </button>
       </div>
       {/* 하단 검색창 및 검색 선택 부분  */}
-      <div>
+      <div className={Styles.searchInputs}>
         <div className={Styles.searchWrapper}>
           {showTooltip && (
             <div className={Styles.tooltip}>목적지를 선택해주세요.</div>
@@ -323,7 +324,7 @@ function SearchBar() {
             value={searchKeyword}
             onChange={handleSearchChange}
             placeholder="여행지나 숙소를 검색해보세요."
-            className={Styles.searchInput}
+            className={Styles.inputBox}
           />
         </div>
         {searchResults.length > 0 && (
@@ -345,7 +346,7 @@ function SearchBar() {
           </ul>
         )}
         {activeButton === "국내 숙소" ? (<div className={Styles.dropdownWrapper} ref={calanderRef}>
-          <button onClick={toggleCalanderControl}>
+          <button onClick={toggleCalanderControl} className={Styles.inputBox}>
             {formatDate(dateRange)}
           </button>
           {/**달력 드롭 다운 */}
@@ -396,7 +397,7 @@ function SearchBar() {
           )}
         </div>) : (
           <div className={Styles.dropdownWrapper} ref={calanderRef}>
-          <button onClick={toggleCalanderControl}>
+          <button onClick={toggleCalanderControl} className={Styles.inputBox}>
             {formatDate(dateRange)}
           </button>
           {/**달력 드롭 다운 */}
@@ -411,7 +412,7 @@ function SearchBar() {
                     displayMonth.getFullYear() === new Date().getFullYear()
                   }
                 >
-                  &lt;
+                  &lt;  
                 </button>
                 <button onClick={handleNextMonth}>&gt;</button>
               </div>
@@ -450,7 +451,7 @@ function SearchBar() {
 
         {activeButton === "국내 숙소" ? (
           <div className={Styles.dropdownWrapper} ref={countRef}>
-            <button onClick={toggleCountControl}>인원 {count}</button>
+            <button onClick={toggleCountControl} className={Styles.inputBox}>인원 {count}</button>
             {/**국내 숙소 인원 드롭다운 */}
             {isCountVisible && (
               <div className={Styles.dropdownContent}>
@@ -474,7 +475,7 @@ function SearchBar() {
           </div>
         ) : (
           <div className={Styles.dropdownWrapper} ref={aboardCountRef}>
-            <button onClick={toggleAboardCountControl}>
+            <button onClick={toggleAboardCountControl} className={Styles.inputBox}>
               성인 {adultCount} {childCount > 0 && `아동 ${childCount}`} 객실{" "}
               {roomCount}
             </button>
@@ -583,8 +584,9 @@ function SearchBar() {
             )}
           </div>
         )}
-        <button onClick={goToSearch}>검색</button>
+        <button className={Styles.searchButton} onClick={goToSearch}>검색</button>
       </div>
+    </div>
     </div>
   );
 }

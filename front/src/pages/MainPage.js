@@ -7,8 +7,29 @@ import TravelDestination from "../main-page/TravelDestination";
 function MainPage() {
   return (
     <div>
-      <h1>메인페이지</h1>
-      <SearchBar />
+      <div
+        style={{
+          width: "100%",
+          height: "400px",
+          backgroundImage: `url("https://static.yeogi.com/_next/static/media/06_Kv_PC_Light_B.3f439e27.webp")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
+        <div style={{ width: "100%", maxWidth: "900px" }}>
+          <h1 style={{ color: "white", textAlign: "left" }}>
+            오사카 료칸부터 경주 캡슐 호텔까지,
+            <br /> 여행할때 여기어때
+          </h1>
+          <SearchBar />
+        </div>
+      </div>
       <br />
       <EventCard />
       <br />
