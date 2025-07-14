@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 //푸터 헤더 import
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import DomesticPage from "./pages/DomesticPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/domestic" element={<DomesticPage />} />
       </Routes>
 
       {/*푸터*/}

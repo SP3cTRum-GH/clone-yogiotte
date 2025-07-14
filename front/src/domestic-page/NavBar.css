@@ -1,0 +1,60 @@
+.nav-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu > div {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  gap: 30px;
+}
+
+.nav-menu > div > li {
+  font-size: 16px;
+}
+
+.nav-menu > div > li > a {
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 5px;
+  color: rgb(112, 112, 112);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-menu > div > li a:hover,
+.nav-menu > div > li a.active {
+  font-weight: 800;
+  color: rgb(29, 139, 255);
+}
+
+.nav-menu > div > li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -27px; /* move the underline down */
+  width: 0%;
+  height: 2px;
+  background-color: rgb(29, 139, 255);
+  transition: width 0.3s ease;
+}
+
+.nav-menu > div > li a:hover::after,
+.nav-menu > div > li a.active::after {
+  width: 100%;
+}
+
+.nav-menu > div > li > span {
+  font-size: 18px;
+  color: black;
+  font-weight: 800;
+}
