@@ -45,6 +45,7 @@
   width: 1200px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .title > p {
@@ -80,4 +81,62 @@
   flex-direction: column;
   justify-content: end;
   align-items: end;
+}
+
+.info-container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-container > div {
+  width: 350px;
+  height: 120px;
+  border: 1px solid rgb(235 235 235);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.review-card > div {
+  display: flex;
+}
+
+.rating > p {
+  font-size: 15px;
+  width: 47px;
+  height: 25px;
+  background-color: rgb(255 197 80);
+  border-radius: 100px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.rating > h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.rating,
+.card {
+  cursor: pointer;
+}
+
+.card > h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.review-card > p {
+  font-size: 15px;
+  color: rgb(51 51 51);
+}
+
+.info-location > p {
+  font-size: 15px;
+  color: rgb(51 51 51);
 }
