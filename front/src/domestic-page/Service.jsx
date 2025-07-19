@@ -5,7 +5,7 @@ const Service = () => {
   return (
     <div className="service-wrap">
       <div className="service-container">
-        <h1>서비스 및 부대시설</h1>
+        <h1 id="service-box">서비스 및 부대시설</h1>
         <div>
           <p>피트니스</p>
           <p>무선인터넷</p>

@@ -23,12 +23,12 @@ footer {
   font-size: 14px;
 }
 
-.info {
+.company-info {
   display: flex;
   flex-direction: column;
 }
 
-.info p {
+.company-info p {
   color: rgb(153, 153, 153);
   font-size: 12px;
   margin: 0;

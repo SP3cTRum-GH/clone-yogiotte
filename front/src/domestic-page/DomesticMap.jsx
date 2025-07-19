@@ -32,9 +32,8 @@ const DomesticMap = () => {
 
   return (
     <div className="domestic-map-container">
-      <h3>위치</h3>
+      <h3 id="position">위치</h3>
       <div id="map" className="domestic-map"></div>
-
       <h2>강원 강릉시 강문동 1-1</h2>
       <ul>
         <li>강릉 강문해변 앞</li>

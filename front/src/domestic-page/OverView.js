@@ -4,7 +4,7 @@ import "./OverView.css";
 const OverView = () => {
     return (
         <>
-            <div>
+            <div id='img-box'>
                 <ul className='img-container'>
                     <li>
                         <img src="http://image.goodchoice.kr/affiliate/2025/04/09/67f620fe253b7.png" alt="숙소이미지" />

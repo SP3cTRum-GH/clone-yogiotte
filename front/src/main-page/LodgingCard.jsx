@@ -224,7 +224,7 @@ function LodgingCard() {
 
               <div className="info">
                 <div className="info-box">
-                  {/* <h4>{console.log(data.type.split(" "))}</h4> */}
+                  <h4>{data.type}</h4>
                   <h3>{data.name}</h3>
                   <p className="location">
                     <span>{data.location}</span> ・ {data.desciption}

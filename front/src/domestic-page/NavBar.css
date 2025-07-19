@@ -1,5 +1,5 @@
 .nav-container {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -7,6 +7,9 @@
   display: flex;
   justify-content: space-between;
   margin: 0;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -20,9 +23,10 @@
 
 .nav-menu > div > li {
   font-size: 16px;
+  cursor: pointer;
 }
 
-.nav-menu > div > li > a {
+.nav-menu > div > li {
   position: relative;
   text-decoration: none;
   padding-bottom: 5px;
@@ -31,13 +35,13 @@
   cursor: pointer;
 }
 
-.nav-menu > div > li a:hover,
-.nav-menu > div > li a.active {
+.nav-menu > div > li:hover,
+.nav-menu > div > li.active {
   font-weight: 800;
   color: rgb(29, 139, 255);
 }
 
-.nav-menu > div > li a::after {
+.nav-menu > div > li::after {
   content: "";
   position: absolute;
   left: 0;
@@ -48,8 +52,8 @@
   transition: width 0.3s ease;
 }
 
-.nav-menu > div > li a:hover::after,
-.nav-menu > div > li a.active::after {
+.nav-menu > div > li:hover::after,
+.nav-menu > div > li.active::after {
   width: 100%;
 }
 

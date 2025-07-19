@@ -53,7 +53,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="info">
+      <div className="company-info">
         <div>
           <p>회사이름</p>
           <p>주소 : 서울특별시 강남구 | 대표이사 : 홍길동 | 사업자등록번호 : 123-12-12345 사업자정보확인</p>

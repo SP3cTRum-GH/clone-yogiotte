@@ -1,0 +1,89 @@
+.overseas-card {
+  width: 730px;
+  margin: 0 auto;
+  background-color: rgb(245 247 250);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.overseas-card > p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.overseas-wrap {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.overseas-wrap > div > img {
+  width: 233px;
+  height: 139px;
+  border-radius: 10px;
+}
+
+.overseas-wrap > div > p {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.overseas-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.overseas-info {
+  width: 462px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(210 210 210);
+  padding-bottom: 20px;
+}
+
+.overseas-info > h4 {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.overseas-guide {
+  display: flex;
+  justify-content: space-between;
+}
+
+.free-cancel > span {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  color: rgb(1 164 132);
+}
+
+.free-cancel > p {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  color: rgb(112, 112, 112);
+}
+
+.overseas-price {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.overseas-price > h4 {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.overseas-price > p {
+  font-size: 11px;
+  color: rgb(112, 112, 112);
+  padding: 0;
+  margin: 0;
+}
