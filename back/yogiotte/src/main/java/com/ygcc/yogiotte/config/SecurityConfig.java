@@ -36,10 +36,6 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/api/login", "/api/signup").permitAll()
                 .anyRequest().authenticated() 
-            )
-            .formLogin(formLogin -> formLogin
-                .loginProcessingUrl("/api/login") // 로그인 처리 URL
-                .failureHandler(authenticationFailureHandler) // 로그인 실패 핸들러
             );
         return http.build();
     }
