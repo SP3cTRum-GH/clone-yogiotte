@@ -1,14 +1,14 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import OverView from '../components/OverView'
-import DomesticItemCard from '../domestic-page/DomesticItemCard'
-import DomesticMap from '../domestic-page/DomesticMap'
+import OverseasCard from "../Overseas-page/OverseasCard";
+import OverseasMap from "../Overseas-page/OverseasMap";
 import AccommodationIntroduction from '../components/ AccommodationIntroduction'
 import Review from '../components/Review';
-import LodgingCard from '../main-page/LodgingCard'
+import LodgingCard from '../main-page/LodgingCard';
 
 
-const DomesticPage = () => {
+const OverseasPage = () => {
     return (
         <div>
             <div style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'white' }}>
@@ -16,13 +16,13 @@ const DomesticPage = () => {
             </div>
             <hr></hr>
             <OverView />
-            <DomesticItemCard />
-            < AccommodationIntroduction />
-            <DomesticMap />
+            <OverseasCard />
+            <AccommodationIntroduction />
+            <OverseasMap />
             <Review />
             <LodgingCard />
         </div>
     )
 }
 
-export default DomesticPage
+export default OverseasPage

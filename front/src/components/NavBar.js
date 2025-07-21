@@ -20,7 +20,7 @@ function NavBar() {
                         <li onClick={() => scrollToSection("position")}>위치</li>
                         <li onClick={() => scrollToSection("real-review")}>리뷰</li>
                     </div>
-                    <div>
+                    <div className='nav-price'>
                         <li><span>18,000</span>원~</li>
                         <li><button>객실보기</button></li>
                     </div>

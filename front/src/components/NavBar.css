@@ -35,8 +35,8 @@
   cursor: pointer;
 }
 
-.nav-menu > div > li:hover,
-.nav-menu > div > li.active {
+.nav-menu > div:not(.nav-price) > li:hover,
+.nav-menu > div:not(.nav-price) > li.active {
   font-weight: 800;
   color: rgb(29, 139, 255);
 }
@@ -45,15 +45,15 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -27px; /* move the underline down */
+  bottom: -20px; /* move the underline down */
   width: 0%;
   height: 2px;
   background-color: rgb(29, 139, 255);
   transition: width 0.3s ease;
 }
 
-.nav-menu > div > li:hover::after,
-.nav-menu > div > li.active::after {
+.nav-menu > div:not(.nav-price) > li:hover::after,
+.nav-menu > div:not(.nav-price) > li.active::after {
   width: 100%;
 }
 
@@ -61,4 +61,15 @@
   font-size: 18px;
   color: black;
   font-weight: 800;
+}
+
+.nav-menu > div:not(.nav-price) > li:hover,
+.nav-menu > div:not(.nav-price) > li.active {
+  font-weight: 800;
+  color: rgb(29, 139, 255);
+}
+
+.nav-menu > div:not(.nav-price) > li:hover::after,
+.nav-menu > div:not(.nav-price) > li.active::after {
+  width: 100%;
 }

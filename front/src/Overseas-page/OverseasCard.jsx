@@ -11,6 +11,7 @@ const OverseasCard = () => {
   return (
     <>
       <div className={showAll ? "show-card" : "OverseasCard"}>
+        <h2 id="parlor-select">객실 선택</h2>
         {[...Array(10)].map((_, i) => {
           return (
             <div className="overseas-card">

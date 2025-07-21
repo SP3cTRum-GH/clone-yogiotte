@@ -1,8 +1,8 @@
 import React from 'react'
-import "./DomesticIntroduction.css"
-import Service from './Service'
+import "./ AccommodationIntroduction.css"
+import Service from '../components/Service';
 
-const DomesticIntroduction = () => {
+const AccommodationIntroduction = () => {
     return (
         <div className='domestic-intro'>
             <hr></hr>
@@ -44,4 +44,4 @@ const DomesticIntroduction = () => {
     )
 }
 
-export default DomesticIntroduction
+export default AccommodationIntroduction

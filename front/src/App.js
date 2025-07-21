@@ -6,11 +6,12 @@ import SearchPage from "./pages/SearchPage";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
 import Admin from "./pages/Admin";
+import DomesticPage from "./pages/DomesticPage";
+import OverseasPage from "./pages/OverseasPage"
 
 //푸터 헤더 import
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import DomesticPage from "./pages/DomesticPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/domestic" element={<DomesticPage />} />
+        <Route path="/overseas" element={<OverseasPage />} />
       </Routes>
 
       {/*푸터*/}
