@@ -1,9 +1,40 @@
+.OverseasCard {
+  width: 1200px;
+  height: 1600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.OverseasCard::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.show-btn {
+  margin-top: 20px;
+  width: 60%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.show-btn:hover {
+  background-color: rgb(233, 231, 231);
+}
+
+.hiden-btn {
+  display: none;
+}
+
 .overseas-card {
   width: 730px;
   margin: 0 auto;
   background-color: rgb(245 247 250);
   padding: 10px;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .overseas-card > p {

@@ -1,6 +1,44 @@
-.DomesticItemCard {
+.button-box {
   width: 1200px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.DomesticItemCard {
+  width: 1200px;
+  height: 1450px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.DomesticItemCard::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.show-card {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.show-btn {
+  margin-top: 20px;
+  width: 60%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.show-btn:hover {
+  background-color: rgb(233, 231, 231);
+}
+
+.hiden-btn {
+  display: none;
 }
 
 .domestic-item-card > div > img {
