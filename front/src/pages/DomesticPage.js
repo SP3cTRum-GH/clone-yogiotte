@@ -6,6 +6,7 @@ import DomesticMap from '../domestic-page/DomesticMap'
 import DomesticIntroduction from '../domestic-page/DomesticIntroduction'
 import Review from '../domestic-page/Review'
 import OverseasCard from '../components/OverseasCard'
+import OverseasMap from '../components/OverseasMap'
 
 const DomesticPage = () => {
     return (
@@ -18,6 +19,8 @@ const DomesticPage = () => {
             <OverseasCard />
             <DomesticIntroduction />
             <DomesticMap />
+            <br></br>
+            <OverseasMap />
             <Review />
         </div>
     )
