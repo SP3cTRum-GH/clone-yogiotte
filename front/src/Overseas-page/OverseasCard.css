@@ -1,6 +1,6 @@
 .OverseasCard {
-  width: 1200px;
-  height: 1600px;
+  width: 800px;
+  height: 1700px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -11,7 +11,7 @@
 
 .show-btn {
   margin-top: 20px;
-  width: 60%;
+  width: 800px;
   height: 40px;
   border-radius: 5px;
   border: none;

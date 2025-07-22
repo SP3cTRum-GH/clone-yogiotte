@@ -3,6 +3,7 @@ import "./OverseasCard.css";
 
 const OverseasCard = () => {
   const [showAll, setShowAll] = useState(false);
+  const items = [...Array(7)];
 
   const handleShowAll = () => {
     setShowAll(true);
@@ -12,7 +13,7 @@ const OverseasCard = () => {
     <>
       <div className={showAll ? "show-card" : "OverseasCard"}>
         <h2 id="parlor-select">객실 선택</h2>
-        {[...Array(10)].map((_, i) => {
+        {items.map((_, i) => {
           return (
             <div className="overseas-card">
               <p>스탠다드 룸, 더블베드[금연]</p>
@@ -80,14 +81,16 @@ const OverseasCard = () => {
           );
         })}
       </div>
-      <div className="button-box">
-        <button
-          className={showAll ? "hiden-btn" : "show-btn"}
-          onClick={handleShowAll}
-        >
-          전체보기
-        </button>
-      </div>
+      {items.length > 5 && (
+        <div className="button-box">
+          <button
+            className={showAll ? "hiden-btn" : "show-btn"}
+            onClick={handleShowAll}
+          >
+            전체보기
+          </button>
+        </div>
+      )}
     </>
   );
 };

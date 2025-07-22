@@ -1,14 +1,6 @@
-.button-box {
-  width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
 .DomesticItemCard {
-  width: 1200px;
+  width: 800px;
   height: 1450px;
-  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -17,14 +9,17 @@
 }
 
 .show-card {
-  width: 1200px;
+  width: 800px;
   height: auto;
-  margin: 0 auto;
+}
+
+.button-box {
+  width: 800px;
 }
 
 .show-btn {
   margin-top: 20px;
-  width: 60%;
+  width: 800px;
   height: 40px;
   border-radius: 5px;
   border: none;
