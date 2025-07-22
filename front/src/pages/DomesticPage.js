@@ -7,6 +7,7 @@ import AccommodationIntroduction from '../components/ AccommodationIntroduction'
 import Review from '../components/Review';
 import LodgingCard from '../main-page/LodgingCard'
 import EventCard from '../main-page/EventCard'
+import { useParams } from 'react-router-dom'
 
 
 

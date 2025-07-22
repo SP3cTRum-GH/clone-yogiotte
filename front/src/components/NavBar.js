@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./NavBar.css";
 
 function NavBar() {
+    useEffect(() => {
+        // 페이지가 처음 로드됐을 때 맨 위로
+        window.scrollTo(0, 0);
+    }, []);
+
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {

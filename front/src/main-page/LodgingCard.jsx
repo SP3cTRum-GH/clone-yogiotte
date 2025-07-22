@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./LodgingCard_module.css";
+import { useNavigate } from "react-router-dom";
 
 const hotelList = [
   {
+    id: 1,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/04/09/67f620fe253b7.png",
     type: "블랙 특급 호텔",
     name: "당일특가 세인트존스 호텔",
@@ -12,8 +14,10 @@ const hotelList = [
     rating: "9.1",
     ratingCount: "9,000",
     price: "57,000",
+    regionType: "domestic",
   },
   {
+    id: 2,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/05/21/682d9e4611b96.jpg",
     type: "프리미엄 호텔",
     name: "라마다 서울 호텔",
@@ -23,8 +27,10 @@ const hotelList = [
     rating: "8.5",
     ratingCount: "5,200",
     price: "84,000",
+    regionType: "domestic",
   },
   {
+    id: 3,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/06/02/683c768b436bc.jpg",
     type: "리조트",
     name: "해운대 씨클라우드",
@@ -34,8 +40,10 @@ const hotelList = [
     rating: "9.0",
     ratingCount: "7,300",
     price: "98,000",
+    regionType: "domestic",
   },
   {
+    id: 4,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/01/31/679c8f04ecb79.jpg",
     type: "모텔",
     name: "호텔더디자이너스",
@@ -45,8 +53,10 @@ const hotelList = [
     rating: "8.1",
     ratingCount: "1,400",
     price: "45,000",
+    regionType: "domestic",
   },
   {
+    id: 5,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/05/01/hotel4.png",
     type: "부티크 호텔",
     name: "호텔 아비뉴 7",
@@ -56,8 +66,10 @@ const hotelList = [
     rating: "8.9",
     ratingCount: "3,800",
     price: "67,000",
+    regionType: "domestic",
   },
   {
+    id: 6,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/05/01/hotel5.png",
     type: "펜션",
     name: "제주 해담은 펜션",
@@ -67,8 +79,10 @@ const hotelList = [
     rating: "9.3",
     ratingCount: "2,600",
     price: "74,000",
+    regionType: "domestic",
   },
   {
+    id: 7,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/05/01/hotel6.png",
     type: "비즈니스 호텔",
     name: "익스프레스 명동 호텔",
@@ -78,8 +92,10 @@ const hotelList = [
     rating: "8.7",
     ratingCount: "4,900",
     price: "88,000",
+    regionType: "domestic",
   },
   {
+    id: 8,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/05/01/hotel7.png",
     type: "풀빌라",
     name: "거제 라움풀빌라",
@@ -89,8 +105,10 @@ const hotelList = [
     rating: "9.6",
     ratingCount: "1,100",
     price: "150,000",
+    regionType: "domestic",
   },
   {
+    id: 9,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/04/09/67f620fe253b7.png",
     type: "블랙 특급 호텔",
     name: "당일특가 세인트존스 호텔",
@@ -100,8 +118,10 @@ const hotelList = [
     rating: "9.1",
     ratingCount: "9,000",
     price: "57,000",
+    regionType: "domestic",
   },
   {
+    id: 10,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/05/21/682d9e4611b96.jpg",
     type: "프리미엄 호텔",
     name: "라마다 서울 호텔",
@@ -111,8 +131,10 @@ const hotelList = [
     rating: "8.5",
     ratingCount: "5,200",
     price: "84,000",
+    regionType: "overseas",
   },
   {
+    id: 11,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/06/02/683c768b436bc.jpg",
     type: "리조트",
     name: "해운대 씨클라우드",
@@ -122,8 +144,10 @@ const hotelList = [
     rating: "9.0",
     ratingCount: "7,300",
     price: "98,000",
+    regionType: "overseas",
   },
   {
+    id: 12,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/01/31/679c8f04ecb79.jpg",
     type: "모텔",
     name: "호텔더디자이너스",
@@ -133,8 +157,10 @@ const hotelList = [
     rating: "8.1",
     ratingCount: "1,400",
     price: "45,000",
+    regionType: "overseas",
   },
   {
+    id: 13,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/04/09/67f620fe253b7.png",
     type: "블랙 특급 호텔",
     name: "당일특가 세인트존스 호텔",
@@ -144,8 +170,10 @@ const hotelList = [
     rating: "9.1",
     ratingCount: "9,000",
     price: "57,000",
+    regionType: "overseas",
   },
   {
+    id: 14,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/05/21/682d9e4611b96.jpg",
     type: "프리미엄 호텔",
     name: "라마다 서울 호텔",
@@ -155,8 +183,10 @@ const hotelList = [
     rating: "8.5",
     ratingCount: "5,200",
     price: "84,000",
+    regionType: "overseas",
   },
   {
+    id: 15,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/06/02/683c768b436bc.jpg",
     type: "리조트",
     name: "해운대 씨클라우드",
@@ -166,8 +196,10 @@ const hotelList = [
     rating: "9.0",
     ratingCount: "7,300",
     price: "98,000",
+    regionType: "overseas",
   },
   {
+    id: 16,
     img: "http://image.goodchoice.kr/resize_564x338/affiliate/2025/01/31/679c8f04ecb79.jpg",
     type: "모텔",
     name: "호텔더디자이너스",
@@ -177,6 +209,7 @@ const hotelList = [
     rating: "8.1",
     ratingCount: "1,400",
     price: "45,000",
+    regionType: "overseas",
   },
 ];
 
@@ -185,6 +218,8 @@ function LodgingCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const listRef = useRef(null);
+
+  const navigate = useNavigate();
 
   const scrollToIndex = (pageIndex) => {
     const CARD_WIDTH = 240;
@@ -217,7 +252,11 @@ function LodgingCard() {
       <ul ref={listRef}>
         {cardList.map((data, idx) => {
           return (
-            <li key={idx} className="container">
+            <li
+              key={idx}
+              className="container"
+              onClick={() => navigate(`${data.regionType}/${data.id}`)}
+            >
               <div className="img-box">
                 <img src={data.img} alt="숙소이미지" />
               </div>

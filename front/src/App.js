@@ -28,8 +28,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/domestic" element={<DomesticPage />} />
-        <Route path="/overseas" element={<OverseasPage />} />
+        <Route path="/domestic/:id" element={<DomesticPage />} />
+        <Route path="/overseas/:id" element={<OverseasPage />} />
       </Routes>
 
       {/*푸터*/}
