@@ -20,14 +20,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "ITEM_TAG")
-@IdClass(ItemTagId.class)
-public class ItemTag {
+@Table(name = "ROOM_TAG")
+@IdClass(RoomTagId.class)
+public class RoomTag {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ITEM_ID")
-    private Item item;
+    @JoinColumn(name = "ROOM_ID")
+    private Room room;
 
     @Id
     @Column(name = "TAG")

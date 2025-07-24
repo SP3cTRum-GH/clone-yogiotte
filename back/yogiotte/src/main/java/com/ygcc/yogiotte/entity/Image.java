@@ -26,8 +26,8 @@ public class Image {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ITEM_ID")
-    private Item item;
+    @JoinColumn(name = "ROOM_ID")
+    private Room room;
 
     @Column(name = "FILE_NAME")
     private String fileName;
