@@ -1,0 +1,175 @@
+.wrap {
+  position: relative;
+  width: calc(
+    (240px * 4) + (40px * 3)
+  ); /*(카드길이 * 갯수) + (갭 * 갭 갯수) **/
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.wrap > ul::-webkit-scrollbar {
+  display: none; /*가로 스크롤바 숨김*/
+}
+
+.wrap > ul {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 40px;
+  overflow-x: hidden; /*가로 방향으로 내용 넘치면 숨김*/
+  scroll-snap-type: x mandatory; /*가로 이동 시 카드 한개에 맞춰서 멈춤*/
+  scroll-behavior: smooth; /* 스크롤 부드럽게 움직임 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  justify-content: start;
+  width: 240px;
+  height: 310px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.container .imfo {
+  display: flex;
+}
+
+.img-box {
+  width: 240px;
+  height: 144px;
+  border-radius: 10px;
+}
+
+.img-box > img {
+  width: 240px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.info > a {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 35px;
+  background-color: #f5f5f5;
+  color: rgb(153, 153, 153);
+  border-radius: 100%;
+  text-decoration: none;
+  text-align: center;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 232px;
+}
+
+.info-box > p,
+.info-box > h3,
+.info-box > h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.info-box > h4 {
+  color: rgb(112, 112, 112);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 0;
+}
+
+.info-box > h3 {
+  color: rgb(51, 51, 51);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 3px 0;
+}
+
+.location {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(153, 153, 153);
+}
+
+.location > span {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(112, 112, 112);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2px;
+}
+
+.rating > span {
+  font-size: 13px;
+  color: rgb(112, 112, 112);
+  font-weight: 500;
+}
+
+.star {
+  background-color: rgb(255, 200, 59);
+  border-radius: 6px;
+  padding: 4px 5px 3px 3px;
+}
+
+.rating > p {
+  margin: 0;
+}
+
+.price {
+  text-align: left;
+}
+
+.price > p {
+  font-weight: 700;
+}
+
+.price > p > span {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(51, 51, 51);
+}
+
+.left-btn,
+.right-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  color: black;
+  border: none;
+}
+
+.left-btn {
+  position: absolute;
+  left: 0;
+}
+
+.right-btn {
+  position: absolute;
+  right: 0;
+}

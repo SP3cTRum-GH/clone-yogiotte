@@ -1,0 +1,49 @@
+footer {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.cs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cs h1 {
+  color: rgb(112, 112, 112);
+  font-size: 18px;
+}
+
+.cs h2 {
+  color: rgb(112, 112, 112);
+  font-size: 15px;
+}
+
+.cs h4 {
+  color: rgb(194, 194, 194);
+  font-size: 14px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info p {
+  color: rgb(153, 153, 153);
+  font-size: 12px;
+  margin: 0;
+}
+
+.service {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.service-info a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(153, 153, 153);
+  margin-right: 30px;
+}

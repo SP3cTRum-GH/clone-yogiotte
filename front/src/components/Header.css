@@ -1,0 +1,120 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #ff4f4f;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.side-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 250px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  z-index: 1000;
+}
+
+.top-section {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.banner {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.login-side-btn {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-section {
+  margin-top: 20px;
+}
+
+.menu-header {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  padding: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.menu-list li:hover {
+  background-color: #f7f7f7;
+}
+
+.new-badge {
+  background-color: #ff5050;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.menu-list.secondary {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
