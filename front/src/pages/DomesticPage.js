@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom'
 
 
 const DomesticPage = () => {
+
     return (
         <div>
             <div style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'white' }}>
@@ -28,7 +29,6 @@ const DomesticPage = () => {
                     <EventCard cardWidth={66} page={4} hidenBtn={true} />
                 </div>
             </div>
-
             <DomesticMap />
             <Review />
             <LodgingCard />
