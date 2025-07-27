@@ -1,0 +1,26 @@
+.service-wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.service-container {
+  margin: 0 auto;
+}
+
+.service-container > h1 {
+  font-size: 18px;
+}
+
+.service-container > div {
+  width: 790px;
+  height: 192px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 15px;
+  color: rgb(112, 112, 112);
+}
+
+.service-container > div > p {
+  margin: 10px 5px;
+}
