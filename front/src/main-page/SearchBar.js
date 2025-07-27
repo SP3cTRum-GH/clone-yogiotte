@@ -14,6 +14,7 @@ function SearchBar() {
   const [isAboardCountVisible, setIsAboardCountVisible] = useState(false);
   const [isCalanderVisible, setISCalanderVisible] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [searchAdress, setSearchAdress] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -167,24 +168,25 @@ function SearchBar() {
       //국내숙소 일경우 urlQuery
       const query = new URLSearchParams({
         keyword: searchKeyword,
+        adress: searchAdress,
         checkin: dateRange[0].toISOString().split("T")[0],
         checkout: dateRange[1].toISOString().split("T")[0],
-        member: count
-      })
+        member: count,
+      });
       navigate(`/search?${query.toString()}`);
     } else {
       //해외숙소 일경우 urlQuery
       const query = new URLSearchParams({
         keyword: searchKeyword,
+        adress: searchAdress,
         checkin: dateRange[0].toISOString().split("T")[0],
         checkout: dateRange[1].toISOString().split("T")[0],
         adult: adultCount,
         child: childCount,
         room: roomCount,
-      })
-      navigate(`/search?${query.toString()}`);
+      });
+      navigate(`/search-overseas?${query.toString()}`);
     }
-
   };
 
   //지도 검색 기능
@@ -205,7 +207,7 @@ function SearchBar() {
         )}`,
         {
           headers: {
-            Authorization: "KakaoAK (api코드)",
+            Authorization: "KakaoAK api코드",
           },
         }
       );
@@ -334,6 +336,7 @@ function SearchBar() {
                   key={item.id}
                   onClick={() => {
                     setSearchKeyword(item.place_name);
+                    setSearchAdress(item.address_name);
                     setSearchResults([]);
                     setISCalanderVisible(true);
                   }}
@@ -345,59 +348,12 @@ function SearchBar() {
               ))}
             </ul>
           )}
-          {activeButton === "국내 숙소" ? (<div className={Styles.dropdownWrapper} ref={calanderRef}>
-            <button onClick={toggleCalanderControl} className={Styles.inputBox}>
-              {formatDate(dateRange)}
-            </button>
-            {/**달력 드롭 다운 */}
-            {isCalanderVisible && (
-              <div className={Styles.dropdownContent}>
-                {/* Navigation buttons */}
-                <div className={Styles.calendarNavigation}>
-                  <button
-                    onClick={handlePrevMonth}
-                    disabled={
-                      displayMonth.getMonth() === new Date().getMonth() &&
-                      displayMonth.getFullYear() === new Date().getFullYear()
-                    }
-                  >
-                    &lt;
-                  </button>
-                  <button onClick={handleNextMonth}>&gt;</button>
-                </div>
-                <h3>{`${displayMonth.getFullYear()}년 ${displayMonth.getMonth() + 1}월`}</h3>
-                <Calendar
-                  value={dateRange}
-                  onClickDay={handleDayClick}
-                  minDate={new Date()}
-                  maxDate={maxSelectableDate || undefined}
-                  activeStartDate={displayMonth}
-                  formatDay={(locale, date) => date.getDate()}
-                  showNeighboringMonth={false}
-                  showNavigation={false}
-                />
-                <h3>{`${displayMonth.getFullYear()}년 ${displayMonth.getMonth() + 2}월`}</h3>
-                <Calendar
-                  value={dateRange}
-                  onClickDay={handleDayClick}
-                  minDate={new Date()}
-                  maxDate={maxSelectableDate || undefined}
-                  activeStartDate={
-                    new Date(
-                      displayMonth.getFullYear(),
-                      displayMonth.getMonth() + 1,
-                      1
-                    )
-                  }
-                  formatDay={(locale, date) => date.getDate()}
-                  showNeighboringMonth={false}
-                  showNavigation={false}
-                />
-              </div>
-            )}
-          </div>) : (
+          {activeButton === "국내 숙소" ? (
             <div className={Styles.dropdownWrapper} ref={calanderRef}>
-              <button onClick={toggleCalanderControl} className={Styles.inputBox}>
+              <button
+                onClick={toggleCalanderControl}
+                className={Styles.inputBox}
+              >
                 {formatDate(dateRange)}
               </button>
               {/**달력 드롭 다운 */}
@@ -416,7 +372,9 @@ function SearchBar() {
                     </button>
                     <button onClick={handleNextMonth}>&gt;</button>
                   </div>
-                  <h3>{`${displayMonth.getFullYear()}년 ${displayMonth.getMonth() + 1}월`}</h3>
+                  <h3>{`${displayMonth.getFullYear()}년 ${
+                    displayMonth.getMonth() + 1
+                  }월`}</h3>
                   <Calendar
                     value={dateRange}
                     onClickDay={handleDayClick}
@@ -427,7 +385,68 @@ function SearchBar() {
                     showNeighboringMonth={false}
                     showNavigation={false}
                   />
-                  <h3>{`${displayMonth.getFullYear()}년 ${displayMonth.getMonth() + 2}월`}</h3>
+                  <h3>{`${displayMonth.getFullYear()}년 ${
+                    displayMonth.getMonth() + 2
+                  }월`}</h3>
+                  <Calendar
+                    value={dateRange}
+                    onClickDay={handleDayClick}
+                    minDate={new Date()}
+                    maxDate={maxSelectableDate || undefined}
+                    activeStartDate={
+                      new Date(
+                        displayMonth.getFullYear(),
+                        displayMonth.getMonth() + 1,
+                        1
+                      )
+                    }
+                    formatDay={(locale, date) => date.getDate()}
+                    showNeighboringMonth={false}
+                    showNavigation={false}
+                  />
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className={Styles.dropdownWrapper} ref={calanderRef}>
+              <button
+                onClick={toggleCalanderControl}
+                className={Styles.inputBox}
+              >
+                {formatDate(dateRange)}
+              </button>
+              {/**달력 드롭 다운 */}
+              {isCalanderVisible && (
+                <div className={Styles.dropdownContent}>
+                  {/* Navigation buttons */}
+                  <div className={Styles.calendarNavigation}>
+                    <button
+                      onClick={handlePrevMonth}
+                      disabled={
+                        displayMonth.getMonth() === new Date().getMonth() &&
+                        displayMonth.getFullYear() === new Date().getFullYear()
+                      }
+                    >
+                      &lt;
+                    </button>
+                    <button onClick={handleNextMonth}>&gt;</button>
+                  </div>
+                  <h3>{`${displayMonth.getFullYear()}년 ${
+                    displayMonth.getMonth() + 1
+                  }월`}</h3>
+                  <Calendar
+                    value={dateRange}
+                    onClickDay={handleDayClick}
+                    minDate={new Date()}
+                    maxDate={maxSelectableDate || undefined}
+                    activeStartDate={displayMonth}
+                    formatDay={(locale, date) => date.getDate()}
+                    showNeighboringMonth={false}
+                    showNavigation={false}
+                  />
+                  <h3>{`${displayMonth.getFullYear()}년 ${
+                    displayMonth.getMonth() + 2
+                  }월`}</h3>
                   <Calendar
                     value={dateRange}
                     onClickDay={handleDayClick}
@@ -451,7 +470,9 @@ function SearchBar() {
 
           {activeButton === "국내 숙소" ? (
             <div className={Styles.dropdownWrapper} ref={countRef}>
-              <button onClick={toggleCountControl} className={Styles.inputBox}>인원 {count}</button>
+              <button onClick={toggleCountControl} className={Styles.inputBox}>
+                인원 {count}
+              </button>
               {/**국내 숙소 인원 드롭다운 */}
               {isCountVisible && (
                 <div className={Styles.dropdownContent}>
@@ -461,13 +482,17 @@ function SearchBar() {
                       <h6>유아 및 아동도 인원수에 포함해주세요</h6>
                     </div>
                     <div className={Styles.buttonBox}>
-                      <button onClick={countDownClick} disabled={count === 1}>-</button>
+                      <button onClick={countDownClick} disabled={count === 1}>
+                        -
+                      </button>
                       {count === 10 ? (
                         <span>{count}+</span>
                       ) : (
                         <span>{count}</span>
                       )}
-                      <button onClick={countUpClick} disabled={count === 10}>+</button>
+                      <button onClick={countUpClick} disabled={count === 10}>
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -475,7 +500,10 @@ function SearchBar() {
             </div>
           ) : (
             <div className={Styles.dropdownWrapper} ref={aboardCountRef}>
-              <button onClick={toggleAboardCountControl} className={Styles.inputBox}>
+              <button
+                onClick={toggleAboardCountControl}
+                className={Styles.inputBox}
+              >
                 성인 {adultCount} {childCount > 0 && `아동 ${childCount}`} 객실{" "}
                 {roomCount}
               </button>
@@ -490,11 +518,17 @@ function SearchBar() {
                     <div className={Styles.buttonBox}>
                       <button
                         onClick={adultCountDownClick}
-                        disabled={adultCount === 1}>-</button>
+                        disabled={adultCount === 1}
+                      >
+                        -
+                      </button>
                       <span>{adultCount}</span>
                       <button
                         onClick={adultCountUpClick}
-                        disabled={adultCount === 36}>+</button>
+                        disabled={adultCount === 36}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                   <div className={Styles.dropdownRow}>
@@ -505,11 +539,17 @@ function SearchBar() {
                     <div className={Styles.buttonBox}>
                       <button
                         onClick={childCountDownClick}
-                        disabled={childCount === 0}>-</button>
+                        disabled={childCount === 0}
+                      >
+                        -
+                      </button>
                       <span>{childCount}</span>
                       <button
                         onClick={childCountUpClick}
-                        disabled={childCount === 9}>+</button>
+                        disabled={childCount === 9}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                   <div className={Styles.dropdownRow}>
@@ -520,11 +560,17 @@ function SearchBar() {
                     <div className={Styles.buttonBox}>
                       <button
                         onClick={roomCountDownClick}
-                        disabled={roomCount === 1}>-</button>
+                        disabled={roomCount === 1}
+                      >
+                        -
+                      </button>
                       <span>{roomCount}</span>
                       <button
                         onClick={roomCountUpClick}
-                        disabled={roomCount === 9}>+</button>
+                        disabled={roomCount === 9}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                   {/**해외 숙소 아동이 0보다 많을경우 아동 나이 select */}
@@ -538,15 +584,16 @@ function SearchBar() {
                       <ul>
                         <li>
                           <h6>
-                            숙소별로 아동으로 간주하는 나이가 다르므로 체크인 일자
-                            기준의 정확한 만나이를 입력해주세요. (해외숙소는
-                            일반적으로 만 17세 이하의 개인을 어린이로 간주합니다.)
+                            숙소별로 아동으로 간주하는 나이가 다르므로 체크인
+                            일자 기준의 정확한 만나이를 입력해주세요.
+                            (해외숙소는 일반적으로 만 17세 이하의 개인을
+                            어린이로 간주합니다.)
                           </h6>
                         </li>
                         <li>
                           <h6>
-                            인원(성인, 아동)을 선택하실 때 객실별로 이용할 인원이
-                            아닌 ‘총 인원 수’를 선택해주세요.
+                            인원(성인, 아동)을 선택하실 때 객실별로 이용할
+                            인원이 아닌 ‘총 인원 수’를 선택해주세요.
                           </h6>
                         </li>
                       </ul>
@@ -584,7 +631,9 @@ function SearchBar() {
               )}
             </div>
           )}
-          <button className={Styles.searchButton} onClick={goToSearch}>검색</button>
+          <button className={Styles.searchButton} onClick={goToSearch}>
+            검색
+          </button>
         </div>
       </div>
     </div>

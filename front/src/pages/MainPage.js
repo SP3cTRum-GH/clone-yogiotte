@@ -7,6 +7,7 @@ import TravelDestination from "../main-page/TravelDestination";
 function MainPage() {
   return (
     <div>
+      {/*서치바 뒤의 배경화면*/}
       <div
         style={{
           width: "100%",

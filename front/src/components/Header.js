@@ -20,6 +20,10 @@ function Header() {
     setIsMenuVisible(false);
   };
 
+  const goToMainPage = () => {
+    navigate("/");
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -40,7 +44,9 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="logo">여기어때</div>
+      <div className="logo">
+        <p onClick={goToMainPage}>여기어때</p>
+      </div>
       <div className="right-section">
         <button className="login-btn" onClick={goToLogin}>
           로그인/회원가입
