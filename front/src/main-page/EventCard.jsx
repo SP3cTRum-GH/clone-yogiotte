@@ -52,16 +52,16 @@ const cardList = [
   },
 ];
 
-function EventCard() {
+function EventCard({ cardWidth, page, hidenBtn }) {
   const [list, setList] = useState(cardList); // 이미지 리스트
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 페이지 인덱스
 
   const listRef = useRef(null); //  <ul> 태그 직접 조작
 
   const scrollToIndex = (pageIndex) => {
-    const CARD_WIDTH = 324;
+    const CARD_WIDTH = cardWidth;
     const GAP = 30;
-    const CARDS_PER_PAGE = 3;
+    const CARDS_PER_PAGE = page;
 
     const scrollX = pageIndex * (CARD_WIDTH + GAP) * CARDS_PER_PAGE;
     listRef.current.scrollTo({ left: scrollX, behavior: "smooth" });
@@ -92,11 +92,23 @@ function EventCard() {
     }
   };
 
+  const carouselStyle = {
+    position: "relative",
+    width: `calc((${cardWidth}px * ${page}) + (30px * 2))` /* 카드 3개 + gap 2개 */,
+    overflow: "hidden",
+    margin: "0 auto",
+    paddingTop: "70px",
+  };
+
   return (
-    <div className="carousel-container">
-      <button className="scroll-btn left" onClick={scrollLeft}>
-        ◄
-      </button>
+    <div style={carouselStyle}>
+      {hidenBtn ? (
+        <></>
+      ) : (
+        <button className="scroll-btn left" onClick={scrollLeft}>
+          ◄
+        </button>
+      )}
       <ul className="carousel-list" ref={listRef}>
         {list.map((card, idx) => (
           <li key={idx} className="event-container">
@@ -104,9 +116,13 @@ function EventCard() {
           </li>
         ))}
       </ul>
-      <button className="scroll-btn right" onClick={scrollRight}>
-        ►
-      </button>
+      {hidenBtn ? (
+        <></>
+      ) : (
+        <button className="scroll-btn right" onClick={scrollRight}>
+          ►
+        </button>
+      )}
       <div className="indicator-wrapper">
         {Array.from({ length: Math.ceil(list.length / 3) }).map((_, idx) => (
           <span

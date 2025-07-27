@@ -1,11 +1,3 @@
-.carousel-container {
-  position: relative;
-  width: calc((324px * 3) + (30px * 2)); /* 카드 3개 + gap 2개 */
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 30px;
-}
-
 .carousel-list {
   margin: 0;
   padding: 0 10px;
