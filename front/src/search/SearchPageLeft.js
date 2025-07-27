@@ -1,4 +1,5 @@
 import Styles from "./searchLeft.module.css"
+import Filter from "./SearchPageFilter"
 
 function SearchPageLeft({mapClick}) {
     
@@ -11,7 +12,7 @@ function SearchPageLeft({mapClick}) {
             </div>
             {/**필터들 */}
             <div>
-
+                <Filter />
             </div>
         </div>
     )

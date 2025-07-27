@@ -42,7 +42,6 @@ function SearchPage() {
     <div className={Styles.container}>
       <div className={Styles.leftContainer}>
         <SearchPageLeft mapClick={openModal} />
-        기타 등등
       </div>
       <div className={Styles.rightContainer}>
         <SearchPageRight keyword={keyword} count={searchListCount} />
