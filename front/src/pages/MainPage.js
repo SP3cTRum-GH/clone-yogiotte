@@ -32,7 +32,7 @@ function MainPage() {
         </div>
       </div>
       <br />
-      <EventCard />
+      <EventCard cardWidth={324} page={3} hidenBtn={true} />
       <br />
       <TravelDestination />
       <br />

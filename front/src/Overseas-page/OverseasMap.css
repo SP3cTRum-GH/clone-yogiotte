@@ -1,0 +1,27 @@
+.domestic-map-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.domestic-map-container > h3 {
+  font-size: 18px;
+}
+
+.domestic-map {
+  background-color: gray;
+  width: 1200px;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.domestic-map-container h2,
+li {
+  font-size: 15px;
+  color: rgb(112 112 112);
+}
+
+.domestic-map-container > ul > li {
+  margin-bottom: 5px;
+}
